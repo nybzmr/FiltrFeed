@@ -1,17 +1,23 @@
 {
   "name": "FiltrFeed",
-  "version": "0.4.0",
+  "version": "0.4.50" ,
   "description": "A way to direct you to the good",
   "permissions": ["storage", "tabs", "activeTab", "scripting", "storage"],
-  "host_permissions": ["https://*.youtube.com/*"],
+  "host_permissions": ["https://*.youtube.com/*", "http://localhost:8080/*"],
   "background":{
     "service_worker" : "service_worker.js"
   },
   "content_scripts": [
+    {
+      "matches": ["https://*.youtube.com/*"],
+      "js": ["workIt.js"],
+      "type": "module"
+    }
+  ],
+  "web_accessible_resources": [
   {
-    "matches": ["https://*.youtube.com/*"],
-    "js": ["workIt.js"],
-    "type": "module"
+    "resources": ["inject.css"],
+    "matches": ["https://*.youtube.com/*"]
   }
 ],
   "action":{
