@@ -3,6 +3,7 @@
 > Turn YouTube into your personal learning assistant. Block distractions. Focus better.
 
 FiltrFeed is a Chrome extension that helps learners stay focused on educational content by automatically filtering out non-educational YouTube videos. No more rabbit holes — just pure productivity.
+ ![CtrlTube Banner](Extension/icon.jpeg)
 
 ---
 
