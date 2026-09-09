@@ -23,7 +23,7 @@ FiltrFeed is a Chrome extension that helps learners stay focused on educational 
 
 | Before | After |
 |--------|-------|
-| ![Before](assets/Screenshot%202025-06-18%20at%2010.46.14 PM.png) | ![After](assets/Screenshot%202025-06-18%20at%2010.47.25 PM.png) | 
+| ![Before](assets/Screenshot%202026-09-08%20at%208.15.16 PM.png) | ![After](assets/Screenshot%202026-09-08%20at%208.15.05 PM.png) | 
 ---
 
 

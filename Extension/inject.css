@@ -1,44 +1,81 @@
-.ytBox{
-    height: 350px;
-    width: 450px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    overflow: hidden;
-    margin: 0 10px;
-    cursor: pointer;
+/* FiltrFeed styles. The active class is toggled by workit.js. */
+
+html.filtrfeed-active .filtrfeed-hidden {
+  display: none !important;
 }
 
-.thumbnail{
-    width: 100%;
-    height: 72.5%;
-    margin-bottom: 2.5%;
+/* YouTube Shorts shelves on the Home/Explore feeds. */
+html.filtrfeed-active ytd-reel-shelf-renderer,
+html.filtrfeed-active ytd-rich-shelf-renderer[is-shorts],
+html.filtrfeed-active ytd-rich-section-renderer:has(ytd-reel-shelf-renderer),
+html.filtrfeed-active ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]) {
+  display: none !important;
 }
 
-.details{
-    width: 100%;
-    flex: 1;
-    box-sizing: border-box;
-    padding: 0.5vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
+/* Shorts entry points in the left navigation. */
+html.filtrfeed-active ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+html.filtrfeed-active ytd-guide-entry-renderer[aria-label="Shorts"],
+html.filtrfeed-active a[title="Shorts"] {
+  display: none !important;
 }
 
-.title{
-    color: white;
-    font-size: 1.6rem;
+.filtrfeed-fallback-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 18px;
+  width: 100%;
+  padding: 20px 0;
+  box-sizing: border-box;
 }
 
-.tags{
-    font-size: 1.4rem;
-    color: #AAAAAA;
+.filtrfeed-fallback-container .ytBox {
+  min-width: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: transparent;
 }
 
-.thumbnail > img{
-    width: 100%;
-    height: auto;
+.filtrfeed-fallback-container .thumbnail {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.filtrfeed-fallback-container .thumbnail img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.filtrfeed-fallback-container .details {
+  padding: 8px 2px;
+}
+
+.filtrfeed-fallback-container .title {
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.35;
+}
+
+.filtrfeed-fallback-container .tags {
+  color: #aaa;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+/* Current YouTube Shorts DOM signatures. YouTube has moved the Shorts cards
+   into generic rich-section/rich-shelf containers in some experiments. */
+html.filtrfeed-active ytd-rich-section-renderer:has(.shortsLockupViewModelHost),
+html.filtrfeed-active ytd-rich-section-renderer:has(ytm-shorts-lockup-view-model),
+html.filtrfeed-active ytd-rich-shelf-renderer:has(.shortsLockupViewModelHost),
+html.filtrfeed-active ytd-rich-shelf-renderer:has(ytm-shorts-lockup-view-model),
+html.filtrfeed-active ytd-rich-item-renderer:has(.shortsLockupViewModelHost),
+html.filtrfeed-active ytd-rich-item-renderer:has(a[href*="/shorts/"]),
+html.filtrfeed-active yt-grid-shelf-view-model:has(.shortsLockupViewModelHost),
+html.filtrfeed-active ytm-shorts-lockup-view-model,
+html.filtrfeed-active .shortsLockupViewModelHost {
+  display: none !important;
 }
